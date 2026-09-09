@@ -1,0 +1,39 @@
+# uptime-sentinel service catalog
+# Copy this file to config.yaml and edit. config.yaml is gitignored so you
+# never commit real internal hostnames or webhook URLs.
+
+# How often (seconds) the `run` command polls each service.
+default_interval_seconds: 60
+
+# SLA target used when a service doesn't set its own `sla_target`.
+default_sla_target: 99.9
+
+# Where alerts go. Delete a block to disable that channel.
+alerting:
+  console: true
+  slack:
+    enabled: false
+    webhook_url: "https://hooks.slack.com/services/REPLACE/ME/WEBHOOK"
+
+services:
+  - name: public-api
+    url: https://httpbin.org/status/200
+    type: http
+    expected_status: 200
+    timeout_seconds: 5
+    interval_seconds: 30
+    sla_target: 99.9
+
+  - name: docs-site
+    url: https://example.com
+    type: http
+    expected_status: 200
+    timeout_seconds: 5
+    sla_target: 99.5
+
+  - name: internal-db
+    host: db.internal.example.com
+    port: 5432
+    type: tcp
+    timeout_seconds: 3
+    sla_target: 99.95

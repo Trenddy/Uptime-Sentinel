@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uptime-sentinel"
+version = "0.1.0"
+description = "Lightweight service uptime & SLA monitor with an HTML status dashboard."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Troy Johnson" }]
+dependencies = [
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+uptime-sentinel = "uptime_sentinel.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["uptime_sentinel*"]
