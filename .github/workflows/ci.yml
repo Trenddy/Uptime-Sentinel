@@ -30,4 +30,4 @@ jobs:
         run: |
           python -m uptime_sentinel.cli demo --db data/ci-demo.db
           python -m uptime_sentinel.cli status --config config.example.yaml --db data/ci-demo.db
-          python -m uptime_sentinel.cli report --db data/ci-demo.db --out docs/ci-report.html
+          python -m uptime_sentinel.cli report --config config.example.yaml --db data/ci-demo.db --out docs/ci-report.html
