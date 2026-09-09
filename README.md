@@ -105,8 +105,6 @@ alerting:
 
 ## Design notes
 
-A few decisions worth calling out, since they're the kind of thing that
-comes up in a support/SRE interview:
 
 - **Time-weighted uptime, not check-count-weighted.** A service checked
   every 10 seconds that fails for 2 minutes has 2 minutes of downtime,
